@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --shadow-color: 220deg 60% 50%;
+    --neuromorphic-bg: #f0f4f8;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50;
+    min-height: 100vh;
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@layer components {
+  .shadow-neuromorphic {
+    box-shadow: 
+      12px 12px 24px rgba(163, 177, 198, 0.6),
+      -12px -12px 24px rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .shadow-neuromorphic:hover {
+    box-shadow: 
+      16px 16px 32px rgba(163, 177, 198, 0.7),
+      -16px -16px 32px rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+  }
+
+  .shadow-neuromorphic-lg {
+    box-shadow: 
+      20px 20px 40px rgba(163, 177, 198, 0.8),
+      -20px -20px 40px rgba(255, 255, 255, 0.9);
+  }
+
+  .shadow-neuromorphic-sm {
+    box-shadow: 
+      6px 6px 12px rgba(163, 177, 198, 0.4),
+      -6px -6px 12px rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  .scale-102 {
+    transform: scale(1.02);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+  }
+
+  input[type="range"] {
+    @apply appearance-none w-full h-2 rounded-lg bg-gray-200;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-blue-500 cursor-pointer;
+    transition: all 0.2s ease;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover {
+    @apply bg-blue-600 transform scale-110;
+  }
+
+  select, input[type="number"], input[type="text"] {
+    @apply transition-all duration-300;
+  }
+
+  select:focus, input[type="number"]:focus, input[type="text"]:focus {
+    @apply ring-2 ring-blue-500 ring-opacity-50 transform scale-102;
+  }
+}
